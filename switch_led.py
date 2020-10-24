@@ -38,15 +38,43 @@ wiringpi.digitalWrite(led,0)
 wiringpi.pinMode(switch,0)
 # the mcp23017 ic has an internal pull up resistor. enabling this will keep the output pulled high. this stops any floating states which could cause odd things to happen in our script, 2
 wiringpi.pullUpDnControl(switch,2)
+I = 65
+print "wait"
+sleep (1)
+while I < 97:
+    print "pin "+ str(I) +": " + str(wiringpi.digitalRead(I))
+    I = I + 1
+    
+    
+I = 65
+wiringpi.digitalWrite(led,1)
+while I < 97:
+    print "pin "+ str(I) +": " + str(wiringpi.digitalRead(I))
+    I = I + 1
 
+
+
+
+sleep (1)
+print "go"
+sleep (2)
 # create an infinite loop
-while True:
+#while True:
 	# because we set the pull up resistor on our output, when we press the button the pin state will actually go low. so we need to check when the pin is low 
-	if not wiringpi.digitalRead(switch):
-		wiringpi.digitalWrite(led,1)
+#	if not wiringpi.digitalRead(switch):
+		#wiringpi.digitalWrite(led,1)
+#		print "In Switch"
+#		I = I + 1
+#		print str(I)
+#	if  wiringpi.digitalRead(switch):
+#		#wiringpi.digitalWrite(led,1)
+#		print "Not In Switch"
+#		I = I - 1
+#		print str(I)
 	# when we release the button the pin state changes back to high
-	else:
-		wiringpi.digitalWrite(led,0)
-	print "running"
+	#else:
+	#	wiringpi.digitalWrite(led,0)
+	#print "running"
+	#print str(I)
 # add a little pause for 1/10 of a second, to allow other process on the Pi to happen, we dont want to hog all the cpu :)
 sleep(0.1)
