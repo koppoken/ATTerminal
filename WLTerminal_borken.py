@@ -111,129 +111,129 @@ LCDN_switch = 95
 #wiringpi.digitalWrite(green_led,0)
 print 'set pin modes'
 # set the pin mode to an input, 0, for all our switches
-wiringpi.pinMode(RUP_switch,0)
-wiringpi.pinMode(RDN_switch,0)
-wiringpi.pinMode(VSUP_switch,0)
-wiringpi.pinMode(VSDN_switch,0)
-wiringpi.pinMode(HUP_switch,0)
-wiringpi.pinMode(HCUP_switch,0)
-wiringpi.pinMode(HCDN_switch,0)
-wiringpi.pinMode(BUP_switch, 0)
-wiringpi.pinMode(BCUP_switch, 0)
-wiringpi.pinMode(BCDN_switch, 0)
-wiringpi.pinMode(LUP_switch, 0)
-wiringpi.pinMode(LCUP_switch, 0)
-wiringpi.pinMode(LCDN_switch, 0)
+wiringpi.pinMode(73,0) #rup switch
+wiringpi.pinMode(74,0) #Rdown
+wiringpi.pinMode(75,0) #Vup
+wiringpi.pinMode(76,0) #Vdown
+wiringpi.pinMode(77,0) #Hup
+wiringpi.pinMode(90,0) #HCup
+wiringpi.pinMode(91,0) #HCDown
+wiringpi.pinMode(78, 0) #bup
+wiringpi.pinMode(92, 0) #BCup
+wiringpi.pinMode(93, 0) #BCdown
+wiringpi.pinMode(89, 0) #Lup
+wiringpi.pinMode(94, 0) #VCup
+wiringpi.pinMode(95, 0) #LCdwn
 
 
 # the mcp23017 ic has an internal pull up resistor. enabling this will keep the output pulled high. this stops any floating states which could cause odd things to happen in our script, 2
-wiringpi.pullUpDnControl(RUP_switch,2)
-wiringpi.pullUpDnControl(RDN_switch,2)
-wiringpi.pullUpDnControl(VSUP_switch,2)
-wiringpi.pullUpDnControl(VSDN_switch,2)
-wiringpi.pullUpDnControl(HUP_switch,2)
-#wiringpi.pullUpDnControl(HDown_switch,2)
-wiringpi.pullUpDnControl(HCUP_switch,2)
-wiringpi.pullUpDnControl(HCDN_switch,2)
-wiringpi.pullUpDnControl(BUP_switch,2)
-wiringpi.pullUpDnControl(BCUP_switch,2)
-wiringpi.pullUpDnControl(BCDN_switch,2)
-wiringpi.pullUpDnControl(LUP_switch,2)
-wiringpi.pullUpDnControl(LCUP_switch,2)
-wiringpi.pullUpDnControl(LCDN_switch,2)
+wiringpi.pullUpDnControl(73,2)
+# ~ wiringpi.pullUpDnControl(RDN_switch,2)
+# ~ wiringpi.pullUpDnControl(VSUP_switch,2)
+# ~ wiringpi.pullUpDnControl(VSDN_switch,2)
+# ~ wiringpi.pullUpDnControl(HUP_switch,2)
+# ~ #wiringpi.pullUpDnControl(HDown_switch,2)
+# ~ wiringpi.pullUpDnControl(HCUP_switch,2)
+# ~ wiringpi.pullUpDnControl(HCDN_switch,2)
+# ~ wiringpi.pullUpDnControl(BUP_switch,2)
+# ~ wiringpi.pullUpDnControl(BCUP_switch,2)
+# ~ wiringpi.pullUpDnControl(BCDN_switch,2)
+# ~ wiringpi.pullUpDnControl(LUP_switch,2)
+# ~ wiringpi.pullUpDnControl(LCUP_switch,2)
+# ~ wiringpi.pullUpDnControl(LCDN_switch,2)
 print 'done setting pin modes'
 #Ok Set up the LED pin IDs
 #Reactor
-R1 = 17 #Note R1, H1, B1 and L1 are always on and use 3.3v pin 17
-R2 = 3
-R3 = 5
-R4 = 7
-R5 = 8
-R6 = 10
-R7 = 11
+# ~ R1 = 17 #Note R1, H1, B1 and L1 are always on and use 3.3v pin 17
+# ~ R2 = 3
+# ~ R3 = 5
+# ~ R4 = 7
+# ~ R5 = 8
+# ~ R6 = 10
+# ~ R7 = 11
 
-#Voids
-V1 = 11
-V2 = 13
-V3 = 15
-V4 = 16
-V5 = 18
-V6 = 19
+# ~ #Voids
+# ~ V1 = 11
+# ~ V2 = 13
+# ~ V3 = 15
+# ~ V4 = 16
+# ~ V5 = 18
+# ~ V6 = 19
 
-#Head
-H1 = 17
-H2 = 21
-H3 = 22
-H4 = 23
-H5 = 24
-H6 = 26
-H7 = 29
+# ~ #Head
+# ~ H1 = 17
+# ~ H2 = 21
+# ~ H3 = 22
+# ~ H4 = 23
+# ~ H5 = 24
+# ~ H6 = 26
+# ~ H7 = 29
 
-#Head Criticals
-HC1 = 31
-HC2 = 32
-HC3 = 33
+# ~ #Head Criticals
+# ~ HC1 = 31
+# ~ HC2 = 32
+# ~ HC3 = 33
 
-#Body
-B1 = 17
-B2 = 36
-B3 = 37
-B4 = 38
-B5 = 39
-B6 = 65
-B7 = 66
-B8 = 67
+# ~ #Body
+# ~ B1 = 17
+# ~ B2 = 36
+# ~ B3 = 37
+# ~ B4 = 38
+# ~ B5 = 39
+# ~ B6 = 65
+# ~ B7 = 66
+# ~ B8 = 67
 
-#Body Criticals
-BC1 = 68
-BC2 = 69
-BC3 = 70
+# ~ #Body Criticals
+# ~ BC1 = 68
+# ~ BC2 = 69
+# ~ BC3 = 70
 
-#Legs
-L1 = 17
-L2 = 81
-L3 = 82
-L4 = 83
-L5 = 84
-L6 = 85
-L7 = 86
-L8 = 87
+# ~ #Legs
+# ~ L1 = 17
+# ~ L2 = 81
+# ~ L3 = 82
+# ~ L4 = 83
+# ~ L5 = 84
+# ~ L6 = 85
+# ~ L7 = 86
+# ~ L8 = 87
 
-#Legs Criticals
-LC1 = 71
-LC2 = 72
-LC3 = 88
-
-#Set Reactor LED GPIO
-GPIO.setup(R2,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(R3,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(R4,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(R5,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(R6,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(R7,GPIO.OUT, initial=GPIO.LOW)
+# ~ #Legs Criticals
+# ~ LC1 = 71
+# ~ LC2 = 72
+# ~ LC3 = 88
 
 print 'setup pins'
 
+#Set Reactor LED GPIO
+GPIO.setup(3, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(5 ,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(7 ,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(8 ,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(10,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(11,GPIO.OUT, initial=GPIO.LOW)
+
 #Set Void Sheild LED GPIO
-GPIO.setup(V1,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(V2,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(V3,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(V4,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(V5,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(V6,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(11,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(13,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(15,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(16,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(18,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(19,GPIO.OUT, initial=GPIO.LOW)
 
 #Set Head LED GPIO
-GPIO.setup(H2,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(H3,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(H4,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(H5,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(H6,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(H7,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(21,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(22,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(23,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(24,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(26,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(29,GPIO.OUT, initial=GPIO.LOW)
 
 #Set Head Crit LED GPIO
-GPIO.setup(HC1,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(HC2,GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(HC3,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(31,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(32,GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(33,GPIO.OUT, initial=GPIO.LOW)
 
 I = 1
 # create an infinite loop
@@ -259,25 +259,25 @@ while True:
 #		wiringpi.digitalWrite(green_led,0)
 	# when we release the button the pin state changes back to high
     print 'In the loop ' + str(I)
+    print 'wipi ' +str(wiringpi.digitalRead(73))
     I = I + 1 
-
 
 
 	
 	#If a press happens I compare states and if it has gone low to high change my led state
-    if not wiringpi.digitalRead(RUP_switch):
-	    if PRUp =='Open':
-                PRUp = 'Closed'
-                PRUPSC = 1
-            else:
-			   PRUPSC = 0
+    # ~ if not wiringpi.digitalRead(73):
+	    # ~ if PRUp =='Open':
+                # ~ PRUp = 'Closed'
+                # ~ PRUPSC = 1
+            # ~ else:
+			   # ~ PRUPSC = 0
 			   
-    if not wiringpi.digitalRead(RDN_switch):
-            if PRDown =='Open':
-                PRDown = 'Closed'
-                PRDNSC = 1
-            else:
-			   PRDNSC = 0
+    # ~ if not wiringpi.digitalRead(RDN_switch):
+            # ~ if PRDown =='Open':
+                # ~ PRDown = 'Closed'
+                # ~ PRDNSC = 1
+            # ~ else:
+			   # ~ PRDNSC = 0
 			   
     if PRUPSC == 1 and PRDNSC == 0:
 		if Reactor > 0 and Reactor < 7:
@@ -298,261 +298,261 @@ while True:
 		#print "Reactor " + str(Reactor) + " PRUp " + str(PRUp) + " PRUPSC " + str(PRUPSC) + " PRDN " + str(PRDown) + " PRDNSC " + str(PRDNSC)	 
     
     print 'in reactor'
-    if Reactor == 1:
-          GPIO.output(R2, GPIO.LOW)
-          GPIO.output(R3, GPIO.LOW)
-          GPIO.output(R4, GPIO.LOW)
-          GPIO.output(R5, GPIO.LOW)
-          GPIO.output(R6, GPIO.LOW)
-	  GPIO.output(R7, GPIO.LOW)
+    # ~ if Reactor == 1:
+          # ~ GPIO.output(R2, GPIO.LOW)
+          # ~ GPIO.output(R3, GPIO.LOW)
+          # ~ GPIO.output(R4, GPIO.LOW)
+          # ~ GPIO.output(R5, GPIO.LOW)
+          # ~ GPIO.output(R6, GPIO.LOW)
+	  # ~ GPIO.output(R7, GPIO.LOW)
 				
-    if Reactor == 2:
-          GPIO.output(R2, GPIO.HIGH)
-          GPIO.output(R3, GPIO.LOW)
-          GPIO.output(R4, GPIO.LOW)
-          GPIO.output(R5, GPIO.LOW)
-          GPIO.output(R6, GPIO.LOW)
-	  GPIO.output(R7, GPIO.LOW)
+    # ~ if Reactor == 2:
+          # ~ GPIO.output(R2, GPIO.HIGH)
+          # ~ GPIO.output(R3, GPIO.LOW)
+          # ~ GPIO.output(R4, GPIO.LOW)
+          # ~ GPIO.output(R5, GPIO.LOW)
+          # ~ GPIO.output(R6, GPIO.LOW)
+	  # ~ GPIO.output(R7, GPIO.LOW)
 	  
-    if Reactor == 3:
-          GPIO.output(R2, GPIO.HIGH)
-          GPIO.output(R3, GPIO.HIGH)
-          GPIO.output(R4, GPIO.LOW)
-          GPIO.output(R5, GPIO.LOW)
-          GPIO.output(R6, GPIO.LOW)
-	  GPIO.output(R6, GPIO.LOW)	  
+    # ~ if Reactor == 3:
+          # ~ GPIO.output(R2, GPIO.HIGH)
+          # ~ GPIO.output(R3, GPIO.HIGH)
+          # ~ GPIO.output(R4, GPIO.LOW)
+          # ~ GPIO.output(R5, GPIO.LOW)
+          # ~ GPIO.output(R6, GPIO.LOW)
+	  # ~ GPIO.output(R6, GPIO.LOW)	  
 
-    if Reactor == 4:
-          GPIO.output(R2, GPIO.HIGH)
-          GPIO.output(R3, GPIO.HIGH)
-          GPIO.output(R4, GPIO.HIGH)
-          GPIO.output(R5, GPIO.LOW)
-          GPIO.output(R6, GPIO.LOW)
-	  GPIO.output(R7, GPIO.LOW)
+    # ~ if Reactor == 4:
+          # ~ GPIO.output(R2, GPIO.HIGH)
+          # ~ GPIO.output(R3, GPIO.HIGH)
+          # ~ GPIO.output(R4, GPIO.HIGH)
+          # ~ GPIO.output(R5, GPIO.LOW)
+          # ~ GPIO.output(R6, GPIO.LOW)
+	  # ~ GPIO.output(R7, GPIO.LOW)
 
-    if Reactor == 5:
-          GPIO.output(R2, GPIO.HIGH)
-          GPIO.output(R3, GPIO.HIGH)
-          GPIO.output(R4, GPIO.HIGH)
-          GPIO.output(R5, GPIO.HIGH)
-          GPIO.output(R6, GPIO.LOW)
-	  GPIO.output(R7, GPIO.LOW)
+    # ~ if Reactor == 5:
+          # ~ GPIO.output(R2, GPIO.HIGH)
+          # ~ GPIO.output(R3, GPIO.HIGH)
+          # ~ GPIO.output(R4, GPIO.HIGH)
+          # ~ GPIO.output(R5, GPIO.HIGH)
+          # ~ GPIO.output(R6, GPIO.LOW)
+	  # ~ GPIO.output(R7, GPIO.LOW)
 	  
-    if Reactor == 6:
-          GPIO.output(R2, GPIO.HIGH)
-          GPIO.output(R3, GPIO.HIGH)
-          GPIO.output(R4, GPIO.HIGH)
-          GPIO.output(R5, GPIO.HIGH)
-          GPIO.output(R6, GPIO.HIGH)
-	  GPIO.output(R7, GPIO.LOW)	  
+    # ~ if Reactor == 6:
+          # ~ GPIO.output(R2, GPIO.HIGH)
+          # ~ GPIO.output(R3, GPIO.HIGH)
+          # ~ GPIO.output(R4, GPIO.HIGH)
+          # ~ GPIO.output(R5, GPIO.HIGH)
+          # ~ GPIO.output(R6, GPIO.HIGH)
+	  # ~ GPIO.output(R7, GPIO.LOW)	  
 	  
-    if Reactor == 7:
-          GPIO.output(R2, GPIO.HIGH)
-          GPIO.output(R3, GPIO.HIGH)
-          GPIO.output(R4, GPIO.HIGH)
-          GPIO.output(R5, GPIO.HIGH)
-          GPIO.output(R6, GPIO.HIGH)
-	  GPIO.output(R7, GPIO.HIGH)	  
+    # ~ if Reactor == 7:
+          # ~ GPIO.output(R2, GPIO.HIGH)
+          # ~ GPIO.output(R3, GPIO.HIGH)
+          # ~ GPIO.output(R4, GPIO.HIGH)
+          # ~ GPIO.output(R5, GPIO.HIGH)
+          # ~ GPIO.output(R6, GPIO.HIGH)
+	  # ~ GPIO.output(R7, GPIO.HIGH)	  
 	  	  
-    #print wiringpi.digitalRead(blue_switch)    
-    if wiringpi.digitalRead(RUP_switch):
-        PRUp = 'Open'
-        PRUPSC = 0
-    if wiringpi.digitalRead(RDN_switch):
-        PRDown = 'Open'
-        PRDNSC = 0
+    # ~ #print wiringpi.digitalRead(blue_switch)    
+    # ~ if wiringpi.digitalRead(RUP_switch):
+        # ~ PRUp = 'Open'
+        # ~ PRUPSC = 0
+    # ~ if wiringpi.digitalRead(RDN_switch):
+        # ~ PRDown = 'Open'
+        # ~ PRDNSC = 0
 	
-	#Begin Void Sheild Block
-    if not wiringpi.digitalRead (VSUP_switch):
-	    if VSUp =='Open':
-                VSUp = 'Closed'
-                VSUPSC = 1
-            else:
-			   VSUPSC = 0
+	# ~ #Begin Void Sheild Block
+    # ~ if not wiringpi.digitalRead (VSUP_switch):
+	    # ~ if VSUp =='Open':
+                # ~ VSUp = 'Closed'
+                # ~ VSUPSC = 1
+            # ~ else:
+			   # ~ VSUPSC = 0
 			   
-    if not wiringpi.digitalRead(VSDN_switch):
-            if VSDown =='Open':
-                VSDown = 'Closed'
-                VSDNSC = 1
-            else:
-			   VSDNSC = 0
+    # ~ if not wiringpi.digitalRead(VSDN_switch):
+            # ~ if VSDown =='Open':
+                # ~ VSDown = 'Closed'
+                # ~ VSDNSC = 1
+            # ~ else:
+			   # ~ VSDNSC = 0
 
-    #print "VSup " + str(VSUp) + " VSDown " + str(VSDown) 
+    # ~ #print "VSup " + str(VSUp) + " VSDown " + str(VSDown) 
     
-    if VSUPSC == 1 and VSDNSC == 0:
-		if Voids > 0 and Voids < 6:
-			Voids = Voids + 1
+    # ~ if VSUPSC == 1 and VSDNSC == 0:
+		# ~ if Voids > 0 and Voids < 6:
+			# ~ Voids = Voids + 1
 
-		print "Voids " + str(Voids) 
+		# ~ print "Voids " + str(Voids) 
 			 
-    if VSUPSC == 0 and VSDNSC == 1:
-		if Voids > 1 and Voids <= 6:
-			Voids = Voids - 1
+    # ~ if VSUPSC == 0 and VSDNSC == 1:
+		# ~ if Voids > 1 and Voids <= 6:
+			# ~ Voids = Voids - 1
 
 
-		print "Voids " + str(Voids)
+		# ~ print "Voids " + str(Voids)
 			 
-    if VSDown == 'Closed' and VSUp == 'Closed':
-            VSBothCount = VSBothCount +1
-    else:
-	    VSBothCount = 0
+    # ~ if VSDown == 'Closed' and VSUp == 'Closed':
+            # ~ VSBothCount = VSBothCount +1
+    # ~ else:
+	    # ~ VSBothCount = 0
     
-    if VSBothCount == 100:
-		if Voids > 0 :
-		  Voids = -1
-		else:
-		  Voids = 6
-  #  print "voids: " + str(Voids) + " VSup " + str(VSUp) + " VSDown " + str(VSDown) + " VSUPSC " + str(VSUPSC) +  " VSDNSC " + str(VSDNSC)
-  #  print "bothCount: " + str(VSBothCount)
+    # ~ if VSBothCount == 100:
+		# ~ if Voids > 0 :
+		  # ~ Voids = -1
+		# ~ else:
+		  # ~ Voids = 6
+  # ~ #  print "voids: " + str(Voids) + " VSup " + str(VSUp) + " VSDown " + str(VSDown) + " VSUPSC " + str(VSUPSC) +  " VSDNSC " + str(VSDNSC)
+  # ~ #  print "bothCount: " + str(VSBothCount)
     
-    print 'In voids'
-    if Voids == -1:
-       GPIO.output(V1, GPIO.LOW)
-       GPIO.output(V2, GPIO.LOW)
-       GPIO.output(V3, GPIO.LOW)
-       GPIO.output(V4, GPIO.LOW)
-       GPIO.output(V5, GPIO.LOW)
-       GPIO.output(V6, GPIO.LOW)
+    # ~ print 'In voids'
+    # ~ if Voids == -1:
+       # ~ GPIO.output(V1, GPIO.LOW)
+       # ~ GPIO.output(V2, GPIO.LOW)
+       # ~ GPIO.output(V3, GPIO.LOW)
+       # ~ GPIO.output(V4, GPIO.LOW)
+       # ~ GPIO.output(V5, GPIO.LOW)
+       # ~ GPIO.output(V6, GPIO.LOW)
  
-    if Voids == 1:
-       GPIO.output(V1, GPIO.HIGH)
-       GPIO.output(V2, GPIO.LOW)
-       GPIO.output(V3, GPIO.LOW)
-       GPIO.output(V4, GPIO.LOW)
-       GPIO.output(V5, GPIO.LOW)
-       GPIO.output(V6, GPIO.LOW)
+    # ~ if Voids == 1:
+       # ~ GPIO.output(V1, GPIO.HIGH)
+       # ~ GPIO.output(V2, GPIO.LOW)
+       # ~ GPIO.output(V3, GPIO.LOW)
+       # ~ GPIO.output(V4, GPIO.LOW)
+       # ~ GPIO.output(V5, GPIO.LOW)
+       # ~ GPIO.output(V6, GPIO.LOW)
        
-    if Voids == 2:
-       GPIO.output(V1, GPIO.LOW)
-       GPIO.output(V2, GPIO.HIGH)
-       GPIO.output(V3, GPIO.LOW)
-       GPIO.output(V4, GPIO.LOW)
-       GPIO.output(V5, GPIO.LOW)
-       GPIO.output(V6, GPIO.LOW)
+    # ~ if Voids == 2:
+       # ~ GPIO.output(V1, GPIO.LOW)
+       # ~ GPIO.output(V2, GPIO.HIGH)
+       # ~ GPIO.output(V3, GPIO.LOW)
+       # ~ GPIO.output(V4, GPIO.LOW)
+       # ~ GPIO.output(V5, GPIO.LOW)
+       # ~ GPIO.output(V6, GPIO.LOW)
   
-    if Voids == 3:
-       GPIO.output(V1, GPIO.LOW)
-       GPIO.output(V2, GPIO.LOW)
-       GPIO.output(V3, GPIO.HIGH)
-       GPIO.output(V4, GPIO.LOW)
-       GPIO.output(V5, GPIO.LOW)
-       GPIO.output(V6, GPIO.LOW)
+    # ~ if Voids == 3:
+       # ~ GPIO.output(V1, GPIO.LOW)
+       # ~ GPIO.output(V2, GPIO.LOW)
+       # ~ GPIO.output(V3, GPIO.HIGH)
+       # ~ GPIO.output(V4, GPIO.LOW)
+       # ~ GPIO.output(V5, GPIO.LOW)
+       # ~ GPIO.output(V6, GPIO.LOW)
  
-    if Voids == 4:
-       GPIO.output(V1, GPIO.LOW)
-       GPIO.output(V2, GPIO.LOW)
-       GPIO.output(V3, GPIO.LOW)
-       GPIO.output(V4, GPIO.HIGH)
-       GPIO.output(V5, GPIO.LOW)
-       GPIO.output(V6, GPIO.LOW)
+    # ~ if Voids == 4:
+       # ~ GPIO.output(V1, GPIO.LOW)
+       # ~ GPIO.output(V2, GPIO.LOW)
+       # ~ GPIO.output(V3, GPIO.LOW)
+       # ~ GPIO.output(V4, GPIO.HIGH)
+       # ~ GPIO.output(V5, GPIO.LOW)
+       # ~ GPIO.output(V6, GPIO.LOW)
        
-    if Voids == 5:
-       GPIO.output(V1, GPIO.LOW)
-       GPIO.output(V2, GPIO.LOW)
-       GPIO.output(V3, GPIO.LOW)
-       GPIO.output(V4, GPIO.LOW)
-       GPIO.output(V5, GPIO.HIGH)
-       GPIO.output(V6, GPIO.LOW)
+    # ~ if Voids == 5:
+       # ~ GPIO.output(V1, GPIO.LOW)
+       # ~ GPIO.output(V2, GPIO.LOW)
+       # ~ GPIO.output(V3, GPIO.LOW)
+       # ~ GPIO.output(V4, GPIO.LOW)
+       # ~ GPIO.output(V5, GPIO.HIGH)
+       # ~ GPIO.output(V6, GPIO.LOW)
        
-    if Voids == 6:
-       GPIO.output(V1, GPIO.LOW)
-       GPIO.output(V2, GPIO.LOW)
-       GPIO.output(V3, GPIO.LOW)
-       GPIO.output(V4, GPIO.LOW)
-       GPIO.output(V5, GPIO.LOW)
-       GPIO.output(V6, GPIO.HIGH) 
+    # ~ if Voids == 6:
+       # ~ GPIO.output(V1, GPIO.LOW)
+       # ~ GPIO.output(V2, GPIO.LOW)
+       # ~ GPIO.output(V3, GPIO.LOW)
+       # ~ GPIO.output(V4, GPIO.LOW)
+       # ~ GPIO.output(V5, GPIO.LOW)
+       # ~ GPIO.output(V6, GPIO.HIGH) 
   
     
-    if wiringpi.digitalRead(VSUP_switch):
-        VSUp = 'Open'
-        VSUPSC = 0
-    if wiringpi.digitalRead (VSDN_switch):
-        VSDown = 'Open'
-        VSDNSC = 0
+    # ~ if wiringpi.digitalRead(VSUP_switch):
+        # ~ VSUp = 'Open'
+        # ~ VSUPSC = 0
+    # ~ if wiringpi.digitalRead (VSDN_switch):
+        # ~ VSDown = 'Open'
+        # ~ VSDNSC = 0
 
-##Head Tracker
-    print "Switch state " + str(wiringpi.digitalRead(HUP_switch))
-    if not wiringpi.digitalRead(HUP_switch):
-	    if HUp =='Open':
-                HUp = 'Closed'
-                HUPSC = 1
+# ~ ##Head Tracker
+    # ~ print "Switch state " + str(wiringpi.digitalRead(HUP_switch))
+    # ~ if not wiringpi.digitalRead(HUP_switch):
+	    # ~ if HUp =='Open':
+                # ~ HUp = 'Closed'
+                # ~ HUPSC = 1
 
-            else:
-		HUPSC = 0
+            # ~ else:
+		# ~ HUPSC = 0
 
 			   
    
     
-    if HUPSC == 1: #and HDNSC == 0:
-         if Head < 8: 
-	      Head = Head + 1
-         elif Head > 7: 
-	      Head = 1
-    print 'In head'
-    if Head == 1:
-        GPIO.output(H2, GPIO.LOW)
-	GPIO.output(H3, GPIO.LOW)
-	GPIO.output(H4, GPIO.LOW)
-	GPIO.output(H5, GPIO.LOW)
-	GPIO.output(H6, GPIO.LOW)
-	GPIO.output(H7, GPIO.LOW)
+    # ~ if HUPSC == 1: #and HDNSC == 0:
+         # ~ if Head < 8: 
+	      # ~ Head = Head + 1
+         # ~ elif Head > 7: 
+	      # ~ Head = 1
+    # ~ print 'In head'
+    # ~ if Head == 1:
+        # ~ GPIO.output(H2, GPIO.LOW)
+	# ~ GPIO.output(H3, GPIO.LOW)
+	# ~ GPIO.output(H4, GPIO.LOW)
+	# ~ GPIO.output(H5, GPIO.LOW)
+	# ~ GPIO.output(H6, GPIO.LOW)
+	# ~ GPIO.output(H7, GPIO.LOW)
 	
-    if Head == 2:
-        GPIO.output(H2, GPIO.HIGH)
-	GPIO.output(H3, GPIO.LOW)
-	GPIO.output(H4, GPIO.LOW)
-	GPIO.output(H5, GPIO.LOW)
-	GPIO.output(H6, GPIO.LOW)
-	GPIO.output(H7, GPIO.LOW)
+    # ~ if Head == 2:
+        # ~ GPIO.output(H2, GPIO.HIGH)
+	# ~ GPIO.output(H3, GPIO.LOW)
+	# ~ GPIO.output(H4, GPIO.LOW)
+	# ~ GPIO.output(H5, GPIO.LOW)
+	# ~ GPIO.output(H6, GPIO.LOW)
+	# ~ GPIO.output(H7, GPIO.LOW)
 	
-    if Head == 3:
-        GPIO.output(H2, GPIO.HIGH)
-	GPIO.output(H3, GPIO.HIGH)
-	GPIO.output(H4, GPIO.LOW)
-	GPIO.output(H5, GPIO.LOW)
-	GPIO.output(H6, GPIO.LOW)
-	GPIO.output(H7, GPIO.LOW)
+    # ~ if Head == 3:
+        # ~ GPIO.output(H2, GPIO.HIGH)
+	# ~ GPIO.output(H3, GPIO.HIGH)
+	# ~ GPIO.output(H4, GPIO.LOW)
+	# ~ GPIO.output(H5, GPIO.LOW)
+	# ~ GPIO.output(H6, GPIO.LOW)
+	# ~ GPIO.output(H7, GPIO.LOW)
 	
-    if Head == 4:
-        GPIO.output(H2, GPIO.HIGH)
-	GPIO.output(H3, GPIO.HIGH)
-	GPIO.output(H4, GPIO.HIGH)
-	GPIO.output(H5, GPIO.LOW)
-	GPIO.output(H6, GPIO.LOW)
-	GPIO.output(H7, GPIO.LOW)
+    # ~ if Head == 4:
+        # ~ GPIO.output(H2, GPIO.HIGH)
+	# ~ GPIO.output(H3, GPIO.HIGH)
+	# ~ GPIO.output(H4, GPIO.HIGH)
+	# ~ GPIO.output(H5, GPIO.LOW)
+	# ~ GPIO.output(H6, GPIO.LOW)
+	# ~ GPIO.output(H7, GPIO.LOW)
 	
-    if Head == 5:
-        GPIO.output(H2, GPIO.HIGH)
-	GPIO.output(H3, GPIO.HIGH)
-	GPIO.output(H4, GPIO.HIGH)
-	GPIO.output(H5, GPIO.HIGH)
-	GPIO.output(H6, GPIO.LOW)
-	GPIO.output(H7, GPIO.LOW)
+    # ~ if Head == 5:
+        # ~ GPIO.output(H2, GPIO.HIGH)
+	# ~ GPIO.output(H3, GPIO.HIGH)
+	# ~ GPIO.output(H4, GPIO.HIGH)
+	# ~ GPIO.output(H5, GPIO.HIGH)
+	# ~ GPIO.output(H6, GPIO.LOW)
+	# ~ GPIO.output(H7, GPIO.LOW)
 	
-    if Head == 6:
-        GPIO.output(H2, GPIO.HIGH)
-	GPIO.output(H3, GPIO.HIGH)
-	GPIO.output(H4, GPIO.HIGH)
-	GPIO.output(H5, GPIO.HIGH)
-	GPIO.output(H6, GPIO.HIGH)
-	GPIO.output(H7, GPIO.LOW)
+    # ~ if Head == 6:
+        # ~ GPIO.output(H2, GPIO.HIGH)
+	# ~ GPIO.output(H3, GPIO.HIGH)
+	# ~ GPIO.output(H4, GPIO.HIGH)
+	# ~ GPIO.output(H5, GPIO.HIGH)
+	# ~ GPIO.output(H6, GPIO.HIGH)
+	# ~ GPIO.output(H7, GPIO.LOW)
 	
-    if Head == 7:
-        GPIO.output(H2, GPIO.HIGH)
-	GPIO.output(H3, GPIO.HIGH)
-	GPIO.output(H4, GPIO.HIGH)
-	GPIO.output(H5, GPIO.HIGH)
-	GPIO.output(H6, GPIO.HIGH)
-	GPIO.output(H7, GPIO.HIGH)
+    # ~ if Head == 7:
+        # ~ GPIO.output(H2, GPIO.HIGH)
+	# ~ GPIO.output(H3, GPIO.HIGH)
+	# ~ GPIO.output(H4, GPIO.HIGH)
+	# ~ GPIO.output(H5, GPIO.HIGH)
+	# ~ GPIO.output(H6, GPIO.HIGH)
+	# ~ GPIO.output(H7, GPIO.HIGH)
 
 	      
 	      
     
     
  
-    if wiringpi.digitalRead(HUP_switch):
-        HUp = 'Open'
-        HUPSC = 0
+    # ~ if wiringpi.digitalRead(HUP_switch):
+        # ~ HUp = 'Open'
+        # ~ HUPSC = 0
  	
  
  #   if wiringpi.digitalRead (HDown_switch):
